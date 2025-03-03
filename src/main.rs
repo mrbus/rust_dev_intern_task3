@@ -1,4 +1,4 @@
-use std::time::SystemTime;
+use std::{ops::ControlFlow, time::SystemTime};
 use rayon::prelude::*;
 use sha256::digest;
 use std::env;
