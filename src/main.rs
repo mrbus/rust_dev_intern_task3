@@ -6,6 +6,7 @@ use sha256::digest;
 fn main() {
     let zeros_count = 5;
     let zeros = "0".repeat(zeros_count);
+    println!("---- BEGIN ----");
     let time_start = SystemTime::now();
 
     (0..10).into_par_iter().for_each(|thrd| {
@@ -15,4 +16,5 @@ fn main() {
         });
     });
     println!("Time elapsed = {:?}", time_start.elapsed().unwrap());
+    println!("---- END ----");
 }
