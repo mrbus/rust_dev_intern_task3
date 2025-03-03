@@ -4,8 +4,24 @@ use rayon::prelude::*;
 use sha256::digest;
 
 fn main() {
-    let zeros_count = 5;
-    let zeros = "0".repeat(zeros_count);
+	if env::args().len() != 5 {
+        println!("Wrong arguments");
+        return;
+    }
+    let args = env::args().collect::<Vec<String>>();
+    let mut zeros_count: Option<usize> = None;
+    let mut to_find_count: Option<usize> = None;
+    [1usize, 3usize].iter().for_each(|idx| {
+        let arg = &args[*idx];
+        let arg2 = args[*idx + 1].parse::<usize>().expect(&format!("Argument {} must be a number", idx + 1));
+        if arg == "-F" { to_find_count = Some(arg2) }
+        else if arg == "-N" { zeros_count = Some(arg2) }
+        else { panic!("Wrong argument: {}", arg); };
+    });
+    let zeros_count = zeros_count.expect("Wrong zeros count");
+    let to_find_count = to_find_count.expect("Wrong to find count");
+    let mut found_count = 0;
+
     println!("---- BEGIN ----");
     let time_start = SystemTime::now();
 
