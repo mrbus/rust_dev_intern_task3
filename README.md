@@ -1,6 +1,8 @@
 # rust_dev_intern_task3
 
-*Rust Hash Finder Application*
+*Rust Hash Finder Application.*
+
+*It searches for numbers whose hashes end with N zeros, up to F results*
 
 ## How to build
 ```console
