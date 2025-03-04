@@ -1,4 +1,22 @@
 # rust_dev_intern_task3
 
+*Rust Hash Finder Application*
 
-cargo run --release -- -F 6 -N 3
+## How to build
+```console
+cargo build
+```
+or
+```console
+cargo build --release
+```
+
+## How to run
+Examples:
+```console
+cargo run -- -F 6 -N 3
+```
+or
+```console
+cargo run --release -- -N 4 -F 7
+```
